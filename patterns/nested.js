@@ -36,7 +36,10 @@ export function makeBoard(rows, cols) {
  * @returns `[]` if `size` is 0 or negative
  */
 export function makeTriangle(size) {
-  // TODO
+  if(typeof(size)!=="number") return null;
+  if(size <= 0) return []
+      const triangle = makeBoard(size)
+  return triangle
 }
 
 /**

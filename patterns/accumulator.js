@@ -6,6 +6,8 @@
  */
 export function sumToN(n) {
   if (typeof n !== "number") return NaN;
+  if (n <= 0) return 0;
+  if (n === 0) return 1;
 
   let sum = 0;
   for (let i = 1; i <= n; i++) {
@@ -22,7 +24,14 @@ export function sumToN(n) {
  * @returns `1` if n is 0
  */
 export function factorial(n) {
-  // TODO
+  product = 0
+  if (typeof(n) !== "number") return 'NaN'
+  if (n < 0) return undefined
+  if (n===0) return 1;
+  for (i = 0;i <= n; ++i) {
+    product = i * [i +1]
+  }
+  return i;
 }
 
 /**
@@ -32,23 +41,40 @@ export function factorial(n) {
  * @returns `[]` if n is 0 or negative
  */
 export function buildNArray(n) {
-  // TODO
+  const output = [];
+  if (isNaN(n)) return null;
+  if (n <= 0) return ouput;
+  else
+    for (let i = 1; i <= n; i++) {
+      output.push(i);
+    }
+  return output;
 }
 
 /**
- * @param {string[]} strings
+ * @param {string[]} strings - an array of strings
  * @returns {string} the longest string in `strings`
+ * @throws {TypeError} if the array contains non-string elements
  */
 export function getLongestString(strings) {
-  // TODO
+  if (strings.length === 0) return "";
+  const longest = strings.reduce(
+    (accumulator, currentValue) =>
+      currentValue.length > accumulator.length ? currentValue : accumulator,
+    ""
+  );
+  return longest;
 }
 
 /**
  * @param {boolean[]} attendance - `true` means a student is present, `false` means a student is absent
  * @returns {number} the number of students present
  */
-export function countPresent(attendance) {
-  // TODO
+export function countPresent(attendance = []) {
+  const present = attendance.filter((status) => {
+    if (status) return true;
+  });
+  return present.length;
 }
 
 /**
@@ -62,5 +88,32 @@ export function countPresent(attendance) {
  * @returns `null` if `dna` is not a string
  */
 export function complementDNA(dna) {
-  // TODO
+  if (typeof dna != "string") return null;
+  if (dna === "") return "";
+  const complements = dna.map((element) => {
+    switch (element) {
+      case "A":
+        element = "T";
+        break;
+      case "G":
+        element = "C";
+        break;
+      case "C":
+        element = "G";
+        break;
+      case "A":
+        element = "T";
+        break;
+      default:
+        return element;
+    }
+  });
+  const longest = complements.reduce(
+    (accumulator, currentValue) =>
+      currentValue.length > accumulator.length
+        ? currentValue
+        : accumulator.length,
+    ""
+  );
+  return longest;
 }

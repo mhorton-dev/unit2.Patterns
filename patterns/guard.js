@@ -19,6 +19,14 @@ export function multiply(num1, num2) {
  */
 export function vote(age) {
   // TODO
+    if(isNaN) 
+      return "Age not valid.  Age is not a number.";
+    else if (age >= 18) {
+      output = prompt(`Who would you like to vote for?`, `Picard/Riker`)
+      return output
+    } else {
+      return "You must be 18 or older to vote."
+    }
 }
 
 /**
@@ -29,4 +37,7 @@ export function vote(age) {
  */
 export function concatenateStrings(str1, str2) {
   // TODO
+  if(str1 != undefined || str2 != undefined)
+    str1.concat(str2)
+  return undefined
 }
